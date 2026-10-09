@@ -14,5 +14,4 @@ public abstract class Item implements Usable{
     public int getValue() {
         return value;
     }
-
 }
