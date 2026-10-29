@@ -5,6 +5,7 @@ public abstract class Item implements Usable{
     public Item(String name, int value){
         this.name = name;
         this.value = value;
+
     }
 
     public String getName() {
