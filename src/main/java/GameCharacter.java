@@ -67,9 +67,8 @@ public abstract class GameCharacter {
     public abstract void attack(GameCharacter target);
 
     public void receiveDamage(int damage){
-        setCurrentHealth(getCurrentHealth() - damage);
-        if(getCurrentHealth() < 0)
-            setCurrentHealth(0);
+        int actualDamage = Math.max(0, damage - getDefence());
+        setCurrentHealth(Math.max(0, getCurrentHealth() - actualDamage));
     }
 
     public boolean isAlive(){
