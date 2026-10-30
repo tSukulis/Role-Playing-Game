@@ -13,19 +13,31 @@ public abstract class GameCharacter {
     public GameCharacter(int id, String name, int level, int maximumHealth, int currentHealth, int attack, int defence){
         this.id = id;
         this.name = name;
-        this.level = level;
-        this.maximumHealth = maximumHealth;
-        this.currentHealth = currentHealth;
-        this.attack = attack;
-        this.defence = defence;
+        this.level = Math.max(1, level);
+        this.maximumHealth = Math.max(0, maximumHealth);
+        this.currentHealth = clamp(currentHealth, 0, this.maximumHealth);
+        this.attack = Math.max(0, attack);
+        this.defence = Math.max(0, defence);
+    }
+
+    private int clamp(int value, int min, int max) {
+        return Math.min(Math.max(value, min), max);
     }
 
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getLevel() {
@@ -34,6 +46,11 @@ public abstract class GameCharacter {
 
     public int getMaximumHealth() {
         return maximumHealth;
+    }
+
+    public void setMaximumHealth(int maximumHealth) {
+        this.maximumHealth = Math.max(0, maximumHealth);
+        this.currentHealth = clamp(this.currentHealth, 0, this.maximumHealth);
     }
 
     public int getCurrentHealth() {
@@ -49,19 +66,19 @@ public abstract class GameCharacter {
     }
 
     public void setAttack(int attack) {
-        this.attack = attack;
+        this.attack = Math.max(0, attack);
     }
 
     public void setLevel(int level) {
-        this.level = level;
+        this.level = Math.max(1, level);
     }
 
     public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
+        this.currentHealth = clamp(currentHealth, 0, this.maximumHealth);
     }
 
     public void setDefence(int defence) {
-        this.defence = defence;
+        this.defence = Math.max(0, defence);
     }
 
     public abstract void attack(GameCharacter target);
