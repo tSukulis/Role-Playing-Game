@@ -50,6 +50,7 @@ public class Mage extends Hero{
 
     public void equipWeapon(Weapon weapon) {
 
+
     }
 
 
