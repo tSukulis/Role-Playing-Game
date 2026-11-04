@@ -16,6 +16,7 @@ public class Warrior extends Hero{
         else if (!(weapon instanceof Sword))
             System.out.println("Warrior can only use Swords");
         else
-            System.out.println("Weapon not in inventory");
+            System.out.println("Weapon not in Inventory");
+
     }
 }
