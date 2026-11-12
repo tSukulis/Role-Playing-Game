@@ -49,8 +49,14 @@ public class Mage extends Hero{
     }
 
     public void equipWeapon(Weapon weapon) {
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 92fc0b5 (test)
+=======
+>>>>>>> cf14abe3f8cd4be1d121ac185e98b26adbacf470
     }
 
 
