@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>RPG_Battle_Simulator</artifactId>
+    <artifactId>rpg_battle_simulator</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -36,7 +36,7 @@
 <distributionManagement>
     <repository>
         <id>github</id>
-        <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+        <url>https://maven.pkg.github.com/tsukulis/Role-Playing-Game</url>
     </repository>
 </distributionManagement>
 
