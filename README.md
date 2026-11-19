@@ -1,6 +1,21 @@
 # RPG Battle Simulator
 
+[![CI/CD pipeline](https://github.com/tSukulis/Role-Playing-Game/actions/workflows/maven-publish.yml/badge.svg?branch=main)](https://github.com/tSukulis/Role-Playing-Game/actions/workflows/maven-publish.yml)
+
 A turn-based RPG battle simulator for the terminal, written in Java. The included demo pits Nick the Warrior against an Orc. Each turn, you can attack or use an inventory item. The Orc retaliates if it survives your turn.
+
+## CI/CD Pipeline
+
+GitHub Actions validates pull requests and publishes Maven artifacts to GitHub Packages after pushes to `main`.
+
+| Trigger | Stage | What runs |
+| --- | --- | --- |
+| Pull request targeting `main` | **Continuous integration** | `mvn -B verify --file pom.xml` compiles the code, runs the JUnit tests, and packages the application. |
+| Push to `main` | **Continuous delivery** | `mvn -B deploy -s "$GITHUB_WORKSPACE/settings.xml"` builds, tests, and publishes the Maven artifact to GitHub Packages. |
+
+Both paths run on Ubuntu with Eclipse Temurin 25. The publish step authenticates with the workflow's `GITHUB_TOKEN` and uses the job's `packages: write` permission.
+
+[Workflow source](.github/workflows/maven-publish.yml)
 
 ## Getting started
 
@@ -19,8 +34,6 @@ java -cp target/rpg_battle_simulator-1.0-SNAPSHOT.jar Main
 
 To try a different matchup, edit [Main.java](src/main/java/Main.java) and pass a different hero and monster to `Battle`. The project includes Warrior, Archer, and Mage heroes, along with Orc, Goblin, Dragon, and DinosaurBird monsters.
 
-## Tests and CI
+## Local tests
 
 Run the JUnit tests with `mvn test`. They cover damage calculation, including how defense affects incoming damage and how lethal damage is handled.
-
-The [GitHub Actions workflow](.github/workflows/maven-publish.yml) uses Temurin 25. It runs `mvn verify` on pull requests targeting `main` and runs `mvn deploy` on pushes to `main` to publish to GitHub Packages.
