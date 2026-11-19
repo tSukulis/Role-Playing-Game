@@ -14,6 +14,7 @@ public class Archer extends Hero{
         return criticalChance;
     }
 
+
     @Override
     public void attack(GameCharacter target){
         if(this.isAlive() && target.isAlive()) {
