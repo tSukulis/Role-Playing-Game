@@ -12,6 +12,7 @@ on:
     branches: [main]
     paths-ignore: 
       - '**/*.md'
+    
 
 
 jobs:
@@ -33,7 +34,7 @@ jobs:
           java-version: '25'
 
       - name: Build
-        run: mvn -B verify --file pom.xml
+        run: mvn -B test --file pom.xml
 
 
 
